@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESTACARS — Réserver Maintenant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --red:        rgb(137, 15, 15);
+      --red-dark:   rgb(90, 10, 10);
+      --red-bright: rgb(192, 57, 43);
+      --red-glow:   rgba(137, 15, 15, 0.4);
+      --red-accent: #e74c3c;
+      --red-soft:   rgba(137, 15, 15, 0.08);
+      --border-red: rgba(137, 15, 15, 0.35);
+      --dark:       #0a0a0a;
+      --card-bg:    #111111;
+      --gray-dark:  #1a1a1a;
+      --border:     rgba(255, 255, 255, 0.08);
+      --text:       #f0f0f0;
+      --muted:      #888;
+      --white:      #f5f5f0;
+      --gray-mid:   #555;
+      --gray-light: #999;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; text-decoration:none; list-style:none; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Poppins',sans-serif; background:var(--dark); color:var(--text); overflow-x:hidden; }
+    body::before {
+      content:''; position:fixed; inset:0;
+      pointer-events:none; z-index:999; opacity:0.35; margin-top:140px;
+    }
+
+    /* NAV */
+    .navbar { position:fixed; top:0; left:0; right:0; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:0 52px; height:70px; background:rgba(10,10,10,0.95); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
+    .logo { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:4px; color:var(--text); }
+    .logo span { color:var(--red); }
+    .nav-links { display:flex; align-items:center; gap:36px; }
+    .nav-links a { font-size:12px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); transition:color 0.2s; position:relative; }
+    .nav-links a::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:2px; background:var(--red); transition:width 0.3s; }
+    .nav-links a:hover { color:var(--text); }
+    .nav-links a:hover::after { width:100%; }
+    .nav-right { display:flex; align-items:center; gap:16px; }
+    .btn-login { font-size:12px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--muted); transition:color 0.2s; }
+    .btn-login:hover { color:var(--text); }
+    .btn-back { background:transparent; color:var(--muted); border:1px solid var(--border); padding:9px 20px; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; transition:all 0.2s; }
+    .btn-back:hover { border-color:var(--red); color:var(--text); }
+
+    /* ════ BANNER VOITURE ════ */
+    .car-banner {
+      margin:0 60px;
+      background:linear-gradient(135deg, rgba(137,15,15,0.18), rgba(137,15,15,0.05));
+      border:1px solid var(--border-red);
+      padding:22px 36px;
+      display:flex; align-items:center; gap:28px;
+      animation:fadeUp 0.5s ease both;
+      position:relative; overflow:hidden;
+      margin-top: 80px;
+    }
+    .car-banner::before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--red); }
+    .car-banner.hidden { display:none; }
+
+    .banner-img { width:90px; height:56px; object-fit:contain; flex-shrink:0; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5)); }
+    .banner-info { flex:1; }
+    .banner-eyebrow { font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--red-accent); margin-bottom:6px; }
+    .banner-name { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:2px; color:var(--text); line-height:1; }
+    .banner-meta { font-size:11px; color:var(--muted); margin-top:4px; }
+    .banner-right { text-align:right; flex-shrink:0; }
+    .banner-price-label { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+    .banner-price { font-family:'Bebas Neue',sans-serif; font-size:34px; letter-spacing:1px; color:var(--red); line-height:1; }
+    .banner-price sub { font-family:'Poppins',sans-serif; font-size:12px; color:var(--muted); font-weight:400; }
+    .banner-change { display:inline-block; margin-top:8px; font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--muted); transition:color 0.2s; cursor:pointer; }
+    .banner-change:hover { color:var(--red-accent); }
+
+    /* No car selected notice */
+    .no-car-notice {
+      margin:20px 60px;
+      padding:18px 28px;
+      border:1px dashed var(--border);
+      display:flex; align-items:center; gap:16px;
+      color:var(--muted); font-size:13px; font-weight:500;
+     margin-top:140px;
+    }
+    .no-car-notice.hidden { display:none; margin-top:130px; }
+    .no-car-notice a { color:var(--red-accent); font-weight:700; letter-spacing:1px; text-transform:uppercase; font-size:11px; }
+
+    /* LAYOUT */
+    .reservation-layout { display:grid; grid-template-columns:1fr 380px; gap:20px; padding:20px 60px 100px; }
+    .form-panel { display:flex; flex-direction:column; gap:16px; }
+
+    /* FORM BLOCKS */
+    .form-block { background:var(--card-bg); border:1px solid var(--border); padding:40px 44px; position:relative; overflow:hidden; animation:fadeUp 0.7s ease both; transition:border-color 0.3s; }
+    .form-block:hover { border-color:rgba(137,15,15,0.15); }
+    .form-block:nth-child(1){animation-delay:0.1s;} .form-block:nth-child(2){animation-delay:0.2s;} .form-block:nth-child(3){animation-delay:0.3s;}
+    .form-block-accent { position:absolute; top:0; left:0; width:3px; height:60px; background:var(--red); }
+    .block-num { position:absolute; top:8px; right:20px; font-family:'Bebas Neue',sans-serif; font-size:76px; letter-spacing:2px; color:rgba(255,255,255,0.03); line-height:1; pointer-events:none; user-select:none; }
+    .block-title { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:2px; margin-bottom:4px; }
+    .block-sub { font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:28px; }
+
+    /* FIELDS */
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+    .form-row.full { grid-template-columns:1fr; }
+    .form-row.triple { grid-template-columns:1fr 1fr 1fr; }
+    .field { display:flex; flex-direction:column; gap:8px; }
+    .field-label { font-size:10px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
+    .field-label span { color:var(--red-accent); margin-left:2px; }
+    .field input, .field select, .field textarea { background:var(--gray-dark); border:1px solid var(--border); color:var(--text); font-family:'Poppins',sans-serif; font-size:14px; padding:13px 16px; outline:none; transition:all 0.3s; appearance:none; -webkit-appearance:none; width:100%; }
+    .field input::placeholder, .field textarea::placeholder { color:var(--muted); font-size:13px; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color:var(--red-accent); background:#1e1e1e; box-shadow:0 0 0 1px rgba(231,76,60,0.12); }
+    .field input[type="date"]::-webkit-calendar-picker-indicator { filter:invert(0.5); cursor:pointer; }
+    .field select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:38px; cursor:pointer; }
+    .field select option { background:var(--dark); color:var(--text); }
+    .field textarea { resize:vertical; min-height:100px; line-height:1.6; }
+
+    /* OPTIONS */
+    .options-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .option-toggle { border:1px solid var(--border); padding:16px 18px; display:flex; align-items:center; gap:14px; cursor:pointer; transition:all 0.25s; }
+    .option-toggle:hover { border-color:var(--border-red); background:rgba(137,15,15,0.03); }
+    .option-toggle.active { border-color:var(--red-accent); background:var(--red-soft); }
+    .option-checkbox { width:20px; height:20px; border:1.5px solid var(--muted); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.25s; border-radius:2px; }
+    .option-toggle.active .option-checkbox { background:var(--red-accent); border-color:var(--red-accent); }
+    .option-toggle.active .option-checkbox::after { content:'✓'; font-size:11px; font-weight:700; color:white; }
+    .option-info { flex:1; }
+    .option-name { font-size:12px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--text); }
+    .option-price { font-size:11px; color:var(--muted); margin-top:3px; }
+
+    /* SUMMARY PANEL */
+    .summary-panel { position:sticky; top:90px; align-self:start; }
+    .summary-card { background:var(--card-bg); border:1px solid var(--border); overflow:hidden; animation:fadeUp 0.7s 0.5s ease both; }
+    .summary-header { background:var(--red); padding:28px 32px; position:relative; overflow:hidden; }
+    .summary-header::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,0.08),transparent); }
+    .summary-header-label { font-size:10px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:6px; }
+    .summary-header-title { font-family:'Bebas Neue',sans-serif; font-size:24px; letter-spacing:2px; color:white; }
+    .summary-body { padding:28px 32px; }
+
+    /* ═══ Car block in summary ═══ */
+    .sum-car-block {
+      display:flex; align-items:center; gap:14px;
+      padding:14px 16px; margin-bottom:20px;
+      background:rgba(137,15,15,0.07); border:1px solid var(--border-red);
+      position:relative;
+    }
+    .sum-car-block::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--red); }
+    .sum-car-img { width:60px; height:38px; object-fit:contain; flex-shrink:0; }
+    .sum-car-marque { font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--red-accent); margin-bottom:3px; }
+    .sum-car-nom { font-family:'Bebas Neue',sans-serif; font-size:17px; letter-spacing:1px; color:var(--text); }
+    .sum-car-type { font-size:10px; color:var(--muted); margin-top:1px; }
+    .sum-car-empty { text-align:center; padding:18px; margin-bottom:20px; border:1px dashed var(--border); color:var(--muted); font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; }
+
+    .sum-line { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; }
+    .sum-line-key { font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--muted); }
+    .sum-line-val { font-size:13px; color:var(--gray-light); }
+    .sum-line-val strong { font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--text); font-weight:400; }
+    .sum-divider { height:1px; background:var(--border); margin:16px 0; }
+    .sum-total { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:24px; }
+    .sum-total-label { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--text); }
+    .sum-total-price { font-family:'Bebas Neue',sans-serif; font-size:42px; letter-spacing:2px; color:var(--text); line-height:1; }
+    .sum-total-price span { font-family:'Poppins',sans-serif; font-size:12px; color:var(--muted); font-weight:400; margin-left:4px; }
+
+    .btn-confirm { width:100%; font-family:'Poppins',sans-serif; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:18px; background:var(--red); color:white; border:none; cursor:pointer; transition:all 0.3s; position:relative; overflow:hidden; }
+    .btn-confirm::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,0.08),transparent); }
+    .btn-confirm:hover { background:var(--red-bright); box-shadow:0 8px 28px var(--red-glow); transform:translateY(-2px); }
+    .btn-confirm:active { transform:translateY(0); }
+    .btn-confirm:disabled { background:#444; cursor:not-allowed; transform:none; box-shadow:none; }
+
+    .sum-guarantee { display:flex; align-items:center; gap:10px; margin-top:14px; padding:13px 14px; border:1px solid var(--border); }
+    .sum-guarantee-icon { font-size:15px; flex-shrink:0; color:var(--red-accent); }
+    .sum-guarantee-text { font-size:10px; font-weight:500; letter-spacing:1px; text-transform:uppercase; color:var(--muted); line-height:1.6; }
+    .sum-trust { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; margin-top:1px; background:var(--border); }
+    .trust-item { background:var(--card-bg); padding:14px 8px; text-align:center; }
+    .trust-icon { font-size:17px; margin-bottom:5px; }
+    .trust-label { font-size:9px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); line-height:1.4; }
+
+    /* FOOTER */
+    footer { background:#060606; border-top:1px solid var(--border); padding:56px 52px 28px; }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:40px; }
+    .footer-brand .logo { font-size:24px; display:block; margin-bottom:14px; }
+    .footer-brand p { font-size:13px; color:var(--muted); line-height:1.7; max-width:280px; margin-bottom:20px; }
+    .footer-socials { display:flex; gap:10px; }
+    .social-btn { width:38px; height:38px; background:rgba(255,255,255,0.05); border:1px solid var(--border); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--muted); transition:all 0.2s; }
+    .social-btn:hover { background:var(--red); border-color:var(--red); color:#fff; }
+    .footer-col h4 { font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text); margin-bottom:18px; }
+    .footer-col ul { display:flex; flex-direction:column; gap:10px; }
+    .footer-col ul li a { font-size:13px; color:var(--muted); transition:color 0.2s; }
+    .footer-col ul li a:hover { color:var(--red-accent); }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:24px; border-top:1px solid var(--border); font-size:12px; color:#444; flex-wrap:wrap; gap:10px; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+
+    @media (max-width:1100px) { .reservation-layout{grid-template-columns:1fr;padding:20px 24px 80px;} .summary-panel{position:static;} .car-banner,.no-car-notice{margin:0 24px;} }
+    @media (max-width:768px) { .navbar{padding:0 20px;} .nav-links{display:none;} .page-header{padding:100px 24px 40px;} .page-header-line{display:none;} .header-inner{flex-direction:column;align-items:flex-start;gap:20px;} .form-block{padding:28px 20px;} .form-row,.form-row.triple{grid-template-columns:1fr;} .options-grid{grid-template-columns:1fr;} footer{padding:48px 20px 24px;} .footer-top{grid-template-columns:1fr;} .car-banner{flex-direction:column;align-items:flex-start;gap:14px;} .banner-right{text-align:left;} }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <a href="ESTAcars1.html" class="logo">ESTA<span>CARS</span></a>
+  <div class="nav-links">
+    <a href="ESTAcars1.html">Accueil</a>
+    <a href="ESTAcars1.html#about">À propos</a>
+    <a href="ESTAcars1.html#cars">Nos voitures</a>
+    <a href="ESTAcars1.html#contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <a href="login.html" class="btn-login">Se connecter</a>
+    <a href="ourcars.html" class="btn-back">← Nos voitures</a>
+  </div>
+</nav>
+
+<!-- ════ BANNER VOITURE SÉLECTIONNÉE ════ -->
+<div class="car-banner hidden" id="car-banner">
+  <img class="banner-img" id="banner-img" src="" alt="">
+  <div class="banner-info">
+    <p class="banner-eyebrow">Véhicule sélectionné</p>
+    <p class="banner-name" id="banner-name">—</p>
+    <p class="banner-meta" id="banner-meta">—</p>
+  </div>
+  <div class="banner-right">
+    <p class="banner-price-label">Tarif / jour</p>
+    <p class="banner-price" id="banner-price">—<sub>DH/j</sub></p>
+    <a href="ourcars.html" class="banner-change">← Changer de voiture</a>
+  </div>
+</div>
+
+<!-- Notice si aucune voiture -->
+<div class="no-car-notice hidden" id="no-car-notice">
+  ⚠️ Aucun véhicule sélectionné — <a href="ourcars.html">Retourner choisir une voiture</a>
+</div>
+
+<!-- LAYOUT -->
+<div class="reservation-layout">
+  <div class="form-panel">
+
+    <!-- BLOC 01 : DATES -->
+    <div class="form-block">
+      <div class="form-block-accent"></div>
+      <span class="block-num">01</span>
+      <h2 class="block-title">Dates & Lieu</h2>
+      <p class="block-sub">Précisez vos dates de location</p>
+      <div class="form-row">
+        <div class="field"><label class="field-label">Date de prise en charge <span>*</span></label><input type="date" id="date-start" onchange="updateDates()"></div>
+        <div class="field"><label class="field-label">Date de retour <span>*</span></label><input type="date" id="date-end" onchange="updateDates()"></div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label class="field-label">Lieu de prise en charge <span>*</span></label>
+          <select><option value="">Sélectionnez un lieu</option><option>Agadir — Aéroport Al Massira</option><option>Agadir — Centre-ville</option><option>Marrakech — Aéroport Menara</option><option>Casablanca — Aéroport Mohammed V</option><option>Livraison à domicile (+200 DH)</option></select>
+        </div>
+        <div class="field">
+          <label class="field-label">Lieu de retour <span>*</span></label>
+          <select><option value="">Même lieu</option><option>Agadir — Aéroport Al Massira</option><option>Agadir — Centre-ville</option><option>Marrakech — Aéroport Menara</option><option>Lieu différent (+300 DH)</option></select>
+        </div>
+      </div>
+      <div class="form-row triple">
+        <div class="field"><label class="field-label">Heure de prise</label><input type="time" value="09:00"></div>
+        <div class="field"><label class="field-label">Heure de retour</label><input type="time" value="18:00"></div>
+        <div class="field"><label class="field-label">Voiture</label>
+          <select>
+          <option>--Selectionner--</option>
+            <option>Mercedes-Class S</option>
+            <option>Porsche Taycan</option>
+            <option>Mercedes-Class C</option>
+            <option>Audi-Q5</option>
+            <option>Infiniti QX60</option>
+            <option>Maserati Ghibli</option>
+            <option>Infiniti QX50 </option>
+            <option>Maserati MC20</option>
+            <option>Volkswagen Golf</option>
+            <option>Mercedes-Class G</option>
+            <option>Volkswagen ID.4</option>
+            <option>Audi e-tron GT </option>
+            <option>Volkswagen Tiguan </option>
+            <option>Porsche 911</option>
+            <option>Alfa Romeo Giulia </option>
+            <option>Audi-A4</option>
+            <option>Maserati Levante</option>
+            <option>Alfa Romeo Tonale</option>
+            <option>Porsche Macan</option>
+           </select>
+          </div>
+      </div>
+    </div>
+
+    <!-- BLOC 02 : OPTIONS -->
+    <div class="form-block">
+      <div class="form-block-accent"></div>
+      <span class="block-num">02</span>
+      <h2 class="block-title">Options & Extras</h2>
+      <p class="block-sub">Personnalisez votre location</p>
+      <div class="options-grid">
+        <div class="option-toggle" onclick="toggleOption(this,300)"><div class="option-checkbox"></div><div class="option-info"><div class="option-name">Assurance Premium</div><div class="option-price">+300 DH / jour</div></div></div>
+        <div class="option-toggle" onclick="toggleOption(this,150)"><div class="option-checkbox"></div><div class="option-info"><div class="option-name">GPS Intégré</div><div class="option-price">+150 DH / jour</div></div></div>
+        <div class="option-toggle" onclick="toggleOption(this,200)"><div class="option-checkbox"></div><div class="option-info"><div class="option-name">Siège Bébé</div><div class="option-price">+200 DH / séjour</div></div></div>
+        <div class="option-toggle" onclick="toggleOption(this,500)"><div class="option-checkbox"></div><div class="option-info"><div class="option-name">Chauffeur Privé</div><div class="option-price">+500 DH / jour</div></div></div>
+        <div class="option-toggle" onclick="toggleOption(this,100)"><div class="option-checkbox"></div><div class="option-info"><div class="option-name">Wi-Fi Embarqué</div><div class="option-price">+100 DH / jour</div></div></div>
+        <div class="option-toggle" onclick="toggleOption(this,0)"><div class="option-checkbox"></div><div class="option-info"><div class="option-name">Plein Inclus</div><div class="option-price">Offert (promo)</div></div></div>
+      </div>
+    </div>
+
+    <!-- BLOC 03 : COORDONNÉES -->
+    <div class="form-block">
+      <div class="form-block-accent"></div>
+      <span class="block-num">03</span>
+      <h2 class="block-title">Vos coordonnées</h2>
+      <p class="block-sub">Informations du conducteur principal</p>
+      <div class="form-row">
+        <div class="field"><label class="field-label">Prénom <span>*</span></label><input type="text" placeholder="ex. Youssef"></div>
+        <div class="field"><label class="field-label">Nom <span>*</span></label><input type="text" placeholder="ex. El Amrani"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label class="field-label">Email <span>*</span></label><input type="email" placeholder="vous@email.com"></div>
+        <div class="field"><label class="field-label">Téléphone <span>*</span></label><input type="tel" placeholder="+212 6XX XXX XXX"></div>
+      </div>
+      <div class="form-row triple">
+        <div class="field"><label class="field-label">N° Permis <span>*</span></label><input type="text" placeholder="Numéro permis"></div>
+        <div class="field"><label class="field-label">Date d'expiration</label><input type="date"></div>
+        <div class="field"><label class="field-label">Nationalité</label><select><option>Marocaine</option><option>Française</option><option>Espagnole</option><option>Autre</option></select></div>
+      </div>
+      <div class="form-row full">
+        <div class="field"><label class="field-label">Demande spéciale</label><textarea placeholder="Précisez toute demande particulière..."></textarea></div>
+      </div>
+    </div>
+
+  </div><!-- /form-panel -->
+
+  <!-- SUMMARY -->
+  <div class="summary-panel">
+    <div class="summary-card">
+      <div class="summary-header">
+        <p class="summary-header-label">Récapitulatif</p>
+        <h3 class="summary-header-title">VOTRE RÉSERVATION</h3>
+      </div>
+      <div class="summary-body">
+
+        <!-- Voiture dans sidebar -->
+        <div class="sum-car-empty" id="sum-empty">Aucun véhicule sélectionné</div>
+        <div class="sum-car-block" id="sum-car-block" style="display:none">
+          <img class="sum-car-img" id="sum-img" src="" alt="">
+          <div>
+            <p class="sum-car-marque" id="sum-marque">—</p>
+            <p class="sum-car-nom" id="sum-nom">—</p>
+            <p class="sum-car-type" id="sum-type">—</p>
+          </div>
+        </div>
+
+        <div class="sum-line"><span class="sum-line-key">Prise en charge</span><span class="sum-line-val" id="sum-start">—</span></div>
+        <div class="sum-line"><span class="sum-line-key">Retour</span><span class="sum-line-val" id="sum-end">—</span></div>
+        <div class="sum-line"><span class="sum-line-key">Durée</span><span class="sum-line-val"><strong id="sum-days">—</strong></span></div>
+        <div class="sum-divider"></div>
+        <div class="sum-line"><span class="sum-line-key">Tarif / jour</span><span class="sum-line-val"><strong id="sum-daily">—</strong></span></div>
+        <div class="sum-line"><span class="sum-line-key">Sous-total</span><span class="sum-line-val" id="sum-sub">—</span></div>
+        <div class="sum-line" id="sum-opts-line" style="display:none"><span class="sum-line-key">Options</span><span class="sum-line-val" id="sum-opts-val">—</span></div>
+        <div class="sum-divider"></div>
+        <div class="sum-total">
+          <span class="sum-total-label">Total</span>
+          <span class="sum-total-price" id="sum-total">—<span>DH</span></span>
+        </div>
+        <button class="btn-confirm" id="btn-confirm" onclick="submitForm()">Confirmer la Réservation</button>
+        <div class="sum-guarantee">
+          <span class="sum-guarantee-icon">🔒</span>
+          <p class="sum-guarantee-text">Annulation gratuite 48h avant la prise en charge</p>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="ESTAcars.html" class="logo">ESTA<span>CARS</span></a>
+      <p>La référence de la location de voitures de prestige à Agadir. Disponible 7j/7 pour vous offrir la meilleure expérience.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn"><i class='bx bxl-instagram'></i></a>
+        <a href="#" class="social-btn"><i class='bx bxl-facebook'></i></a>
+        <a href="#" class="social-btn"><i class='bx bxl-whatsapp'></i></a>
+        <a href="#" class="social-btn"><i class='bx bxl-tiktok'></i></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="nosvoitures.html#home">Accueil</a></li><li><a href="nosvoitures.html#about">À propos</a></li><li><a href="nosvoitures.html#cars">Nos voitures</a></li><li><a href="nosvoitures.html#contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="#">Location courte durée</a></li><li><a href="#">Location longue durée</a></li><li><a href="#">Transfert aéroport</a></li><li><a href="#">Chauffeur privé</a></li></ul></div>
+    <div class="footer-col"><h4>Légal</h4><ul><li><a href="conditiond'utilisation.html">Conditions d'utilisation</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 ESTACARS. Tous droits réservés.</span><span>Conçu avec ♥ à Agadir 🇲🇦</span></div>
+</footer>
+
+<script>
+  // ══════════════════════════════════════════
+  //  LECTURE DES PARAMÈTRES URL
+  //  Ex: ?nom=Mercedes+Classe+S&prix=1100&marque=Mercedes&type=Berline&places=5&img=URL
+  // ══════════════════════════════════════════
+  const p       = new URLSearchParams(window.location.search);
+  const carNom  = p.get('nom')    || '';
+  const carPrix = parseInt(p.get('prix')) || 0;
+  const carMarq = p.get('marque') || '';
+  const carType = p.get('type')   || '';
+  const carPlac = p.get('places') || '';
+  const carImg  = p.get('img')    || '';
+
+  let dailyPrice   = carPrix;
+  let daysCount    = 0;
+  let optionsTotal = 0;
+
+  function initCarInfo() {
+    const banner       = document.getElementById('car-banner');
+    const noCarNotice  = document.getElementById('no-car-notice');
+    const sumEmpty     = document.getElementById('sum-empty');
+    const sumCarBlock  = document.getElementById('sum-car-block');
+
+    if (!carNom) {
+      // Aucune voiture passée → afficher notice
+      noCarNotice.classList.remove('hidden');
+      return;
+    }
+
+    // ── Banner (sous le header) ──
+    banner.classList.remove('hidden');
+    document.getElementById('banner-img').src       = carImg;
+    document.getElementById('banner-name').textContent = carNom;
+    const meta = [carType, carPlac ? carPlac + ' places' : ''].filter(Boolean).join(' · ');
+    document.getElementById('banner-meta').textContent = meta;
+    document.getElementById('banner-price').innerHTML  = carPrix.toLocaleString('fr-FR') + '<sub>DH/j</sub>';
+
+    // ── Résumé sidebar ──
+    sumEmpty.style.display    = 'none';
+    sumCarBlock.style.display = 'flex';
+    document.getElementById('sum-img').src           = carImg;
+    document.getElementById('sum-marque').textContent = carMarq;
+    document.getElementById('sum-nom').textContent    = carNom;
+    document.getElementById('sum-type').textContent   = meta;
+    document.getElementById('sum-daily').textContent  = carPrix.toLocaleString('fr-FR') + ' DH';
+  }
+
+  function updateDates() {
+    const s = document.getElementById('date-start').value;
+    const e = document.getElementById('date-end').value;
+    if (s) document.getElementById('sum-start').textContent = fmtDate(s);
+    if (e) document.getElementById('sum-end').textContent   = fmtDate(e);
+    if (s && e) {
+      const diff = (new Date(e) - new Date(s)) / 86400000;
+      daysCount  = diff > 0 ? Math.round(diff) : 0;
+      document.getElementById('sum-days').textContent =
+        daysCount > 0 ? daysCount + ' jour' + (daysCount > 1 ? 's' : '') : '—';
+    }
+    updateTotal();
+  }
+
+  function toggleOption(el, price) {
+    el.classList.toggle('active');
+    optionsTotal = 0;
+    document.querySelectorAll('.option-toggle.active').forEach(o => {
+      const m = o.querySelector('.option-price').textContent.match(/\+(\d+)/);
+      if (m) optionsTotal += parseInt(m[1]);
+    });
+    const line = document.getElementById('sum-opts-line');
+    line.style.display = optionsTotal > 0 ? 'flex' : 'none';
+    if (optionsTotal > 0)
+      document.getElementById('sum-opts-val').textContent = '+' + optionsTotal.toLocaleString('fr-FR') + ' DH';
+    updateTotal();
+  }
+
+  function updateTotal() {
+    if (daysCount > 0 && dailyPrice > 0) {
+      const sub = dailyPrice * daysCount;
+      const tot = sub + optionsTotal;
+      document.getElementById('sum-sub').textContent  = sub.toLocaleString('fr-FR') + ' DH';
+      document.getElementById('sum-total').innerHTML  = tot.toLocaleString('fr-FR') + '<span>DH</span>';
+    } else {
+      document.getElementById('sum-sub').textContent  = '—';
+      document.getElementById('sum-total').innerHTML  = '—<span>DH</span>';
+    }
+  }
+
+  function fmtDate(str) {
+    return new Date(str).toLocaleDateString('fr-FR', {day:'2-digit', month:'short', year:'numeric'});
+  }
+
+  function submitForm() {
+    if (!carNom)        { alert('Aucun véhicule sélectionné.\nRetournez sur la page des voitures pour en choisir une.'); return; }
+    if (daysCount <= 0) { alert('Veuillez sélectionner vos dates de location.'); return; }
+    const btn = document.getElementById('btn-confirm');
+    btn.textContent     = '✓ Réservation confirmée !';
+    btn.style.background = '#1a7a1a';
+    btn.style.boxShadow  = '0 8px 28px rgba(0,120,0,0.3)';
+    btn.disabled         = true;
+    setTimeout(() => {
+      btn.textContent      = 'Confirmer la Réservation';
+      btn.style.background = ''; btn.style.boxShadow = '';
+      btn.disabled         = false;
+    }, 3500);
+  }
+
+  // Dates par défaut
+  const today = new Date();
+  const d1 = new Date(today); d1.setDate(d1.getDate()+1);
+  const d2 = new Date(today); d2.setDate(d2.getDate()+4);
+  document.getElementById('date-start').value = d1.toISOString().split('T')[0];
+  document.getElementById('date-end').value   = d2.toISOString().split('T')[0];
+
+  initCarInfo();
+  updateDates();
+</script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESTACARS — Accueil</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ESTAcars1.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#home" class="logo">ESTA<span>CARS</span></a>
+        <div class="nav-links">
+            <a href="#home" >Accueil</a>
+            <a href="#about">À propos</a>
+            <a href="ourcars.html">Nos voitures</a>
+            <a href="#why">Pourquoi nous</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-right">
+            <a href="login.html" class="btn-login">Se connecter</a>
+            <a href="Reservation.html" class="btn-reserve">Réserver</a>
+        </div>
+    </nav>
+
+    <!--HERO-->
+    <section id="home">
+        <div class="home-bg"></div>
+        <div class="home-content">
+            <h1>Conduisez<br>l'exception<br><span>à Agadir</span></h1>
+            <p>Des véhicules haut de gamme disponibles 24h/24. Réservez en ligne en quelques clics et vivez une expérience de conduite unique.</p>
+            <div class="home-btn">
+                <a href="#cars" class="btn-primary">
+                    <i class='bx bx-car'></i> Voir nos offres
+                </a>
+                <a href="Reservation.html" class="btn-outline">
+                    <i class='bx bx-calendar-check'></i> Réserver maintenant
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--À PROPOS-->
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-img-wrap">
+                <img src="https://i.pinimg.com/1200x/b8/ce/3c/b8ce3ce121da108803bc6887a368d698.jpg" alt="ESTACARS">
+                <div class="about-img-badge">✦ Depuis 2020</div>
+            </div>
+            <div class="about-text">
+                <span class="section-label">— À propos</span>
+                <h2 class="section-title">L'excellence<br>en location</h2>
+                <p class="section-sub">
+                    ESTACARS est la référence de la location de voitures de prestige à Agadir et dans toute la région Souss-Massa. Depuis 2016, nous accompagnons particuliers et professionnels avec une flotte irréprochable et un service 5 étoiles.
+                </p>
+                <div class="values-list">
+                    <div class="value-item">
+                        <div class="value-icon"><i class='bx bx-car'></i></div>
+                        <div class="value-info">
+                            <h4>Large choix</h4>
+                            <p>Plus de 50 véhicules de toutes catégories</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon"><i class='bx bx-bolt-circle'></i></div>
+                        <div class="value-info">
+                            <h4>Réservation rapide</h4>
+                            <p>Confirmée en moins de 30 minutes</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon"><i class='bx bx-shield-check'></i></div>
+                        <div class="value-info">
+                            <h4>Véhicules certifiés</h4>
+                            <p>Révisés et assurés tous risques</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon"><i class='bx bx-headphone'></i></div>
+                        <div class="value-info">
+                            <h4>Support 24/7</h4>
+                            <p>Une équipe disponible à toute heure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOS VOITURES  -->
+    <section id="cars">
+        <div class="cars-header">
+            <div>
+                <span class="section-label">— Notre flotte</span>
+                <h2 class="section-title">Nos offres</h2>
+            </div>
+        </div>
+
+        <div class="cars-grid">
+            <div class="car-card" data-brand="bmw"data-price="700" data-rating="4.8"data-type="sedan">
+                <div class="car-img-wrap">
+                    <img src="https://prod.cosy.bmw.cloud/bmwweb/cosySec?COSY-EU-100-7331c9Nv2Z7d5yKlHS9jBqH7TAJei1ZIjAzpy3dgrvQF%259U3E47LdqfML8PF99%25U9XLzYmayVaH61mnvzic1QpE%25ViPRKVZlPxK73DIdpvw3azDxDr0dnkq8qTszOALUL3dkIFJGJfiABKupUBQFeWS6GwBKMPVYpTeWhbNm6rgPo90yYhObHi4TmtY9%25wc3y7DiftxdTCaw178zBQltECUke3Z7slGAM9HCrXpFhialZQ6KoZpXRaYWHDVQ5nmPXeJagOybQCsnvIT9algO2B3in2ZIjedwOjXBDMztIlmeqhk7BgMMLoACeZnhJHFlMUxou%25KXhGDHSfWQo4T%25V1PaH%25DfNEbn%25Zh10s9OfD1E4riIX4SscZwBQ24rxRteaogZ857Mn67RUgChOYQ5GvloImGgp2XHBRKv6jQ%25e5Q2YDafMgxjmqn1SrGDyLOEVcmqTJIsNkvL3uBr0AtJdSeZ4FCuzVMRcXySkNh5xQaVA0og8uVNF4HvU8f0Kc%252G7Q4WxfjpTCcP81D6GvxbUEqYlE89GsLljFUiprJXDGGw6ZuQWWptYRSao667m5Vnu%25YCygNyz8mlTv0TVSyX3243xMTQdjcd8R3azDxzkodnkq8kaszOALUAnzkIFJGF%25bABKupM9TFeWS6hr3KMPVYo%25wWhcgDzr3D%25WontGwgUJmGcpRB2Srxl5jAvmZ7dgMyDWRUQ8J2jD5lk1tcDVXOyzoVBDFu6GZCpEiy5wiXRTod0Ff4hFUW7ckagdOLb5inTNu8PftE6l5by2o3FxB%25KTjqL" width="400" height="300">
+                    <span class="car-tag">Disponible</span>
+                    <span class="car-rating">★ 4.8</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">BMW Série 3</div>
+                    <div class="car-type">Berline</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">700 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=BMW+Série+3&prix=700&marque=BMW&type=Berline&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/200px-BMW.svg.png" class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" data-brand="audi"data-price="1000" data-rating="4.9"data-type="sedan">
+                <div class="car-img-wrap">
+                    <img src="https://kifalstorage.s3.amazonaws.com/new/img/audi/etrongt/principal.png" width="300" height="180">
+                    <span class="car-tag" style="background:#1a7a4a">Electrique</span>
+                    <span class="car-rating">★ 4.9</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Audi e-tron GT </div>
+                    <div class="car-type">Berline sportive</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-map'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-heart'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">1000 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=Audi+e-tron+GT&prix=1000&marque=Audi&type=Berline+sportive&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Audi-Logo_2016.svg/200px-Audi-Logo_2016.svg.png"class="btn-book">Réserver</a>  
+                </div>
+            </div>
+            </div>
+
+            <div class="car-card"data-brand="porshe"data-price="1700" data-rating="5.0"data-type="electrique">
+                <div class="car-img-wrap">
+                    <img src="https://file.kelleybluebookimages.com/kbb/base/evox/CP/52034/2023-Porsche-Taycan-front_52034_032_2400x1800_4I_nologo.png" width="380" height="250" >
+                    <span class="car-tag">Disponible</span>
+                    <span class="car-rating">★ 5.0</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">PORSCHE taycan</div>
+                    <div class="car-type">Electrique</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 4 places</span>
+                        <span class="spec"><i class='bx bx-trip'></i> 4x4</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">1700 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=Porsche+Taycan&prix=1700&marque=Porsche&type=Electrique&places=4&img=https://upload.wikimedia.org/wikipedia/commons/4/44/Porsche_hood_emblem.png" class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card"data-brand="mercedes"data-price="1100" data-rating="5.0"data-type="luxe">
+                <div class="car-img-wrap">
+                    <img src="https://images.netdirector.co.uk/gforces-auto/image/upload/w_543,h_362,dpr_2.0,q_auto,c_fill,f_auto,fl_lossy/auto-client/eecb4849b30914b11bf1f5b377cd9fa8/g_500.png" width="350" height="230">
+                    <span class="car-tag" style="background:#c9a84c">Premium</span>
+                    <span class="car-rating">★ 5.0</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Mercedes G500</div>
+                    <div class="car-type">Luxe</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-map'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-heart'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">1100 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=Mercedes+G500&prix=1100&marque=Mercedes&type=Luxe&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/200px-Mercedes-Logo.svg.png" class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card"data-brand="volkswagen"data-price="700" data-rating="4.5"data-type="electrique">
+                <div class="car-img-wrap">
+                    <img src="https://image.elite-auto.fr/visuel/VOLKSWAGEN/volkswagen_21id4firsteditionsu1b_angularfront.png" width="320" height="170">
+                    <span class="car-tag" style="background:#1a7a4a">Electrique</span>
+                    <span class="car-rating">★ 4.5</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Volkswagen ID.4</div>
+                    <div class="car-type">Electrique</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-package'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">700 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=Volkswagen+ID.4&prix=700&marque=Volkswagen&type=Electrique&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Volkswagen_logo_2019.svg/200px-Volkswagen_logo_2019.svg.png"  class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" data-brand="infiniti"data-price="950" data-rating="4.9" data-type="suv">
+                <div class="car-img-wrap">
+                    <img src="https://www.infinitiusa.com/content/dam/Infiniti/US/vehicles/QX60/2026/vehicle-profile-assets/model-2026-infiniti-qx60-pure-awd-black-obsidian.png" width="360" height="180">
+                    <span class="car-tag">DISPONIBLE</span>
+                    <span class="car-rating">★ 4.9</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Infiniti QX60</div>
+                    <div class="car-type">SUV</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 7 places</span>
+                        <span class="spec"><i class='bx bx-chip'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-map'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">950 <sub>DH/jour</sub></div>
+                        <a href="Reservation.html?nom=Infiniti+QX60&prix=950&marque=Infiniti&type=SUV&places=7&img=https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Infiniti_logo.svg/200px-Infiniti_logo.svg.png" class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <a href="ourcars.html"  class="btn-Plus">
+                    Plus
+               </a>
+    </section>
+    <!-- ══ POURQUOI NOUS ══ -->
+    <section id="why">
+        <div class="why-intro">
+            <span class="section-label">— Nos avantages</span>
+            <h2 class="section-title">Pourquoi choisir ESTACARS ?</h2>
+            <p class="section-sub">Nous nous engageons à vous offrir le meilleur service de location de voitures à Agadir.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon"><i class='bx bx-check-shield'></i></div>
+                <h3>Véhicules certifiés</h3>
+                <p>Chaque véhicule est inspecté et entretenu avant chaque location.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class='bx bx-time-five'></i></div>
+                <h3>Disponible 24h/24</h3>
+                <p>Notre service est actif 7j/7 pour toutes vos demandes urgentes.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class='bx bx-money'></i></div>
+                <h3>Prix transparents</h3>
+                <p>Aucun frais caché. Le prix affiché est le prix final.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon"><i class='bx bx-map-pin'></i></div>
+                <h3>Livraison à domicile</h3>
+                <p>Nous livrons le véhicule à votre hôtel, aéroport ou adresse.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ CONTACT ══ -->
+    <section id="contact">
+        <span class="section-label">— Contact</span>
+        <h2 class="section-title">Contactez-nous</h2>
+        <p class="section-sub">Une question ? Notre équipe vous répond sous 30 minutes.</p>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-item-icon"><i class='bx bx-phone'></i></div>
+                    <div>
+                        <h4>Téléphone</h4>
+                        <p>+212 6 00 00 00 00</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon"><i class='bx bx-envelope'></i></div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>ESTAcars@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon"><i class='bx bx-map'></i></div>
+                    <div>
+                        <h4>Adresse</h4>
+                        <p>
+                           <a href="https://maps.app.goo.gl/TU7jzLo3qLgqiz727" style="color:#888";>
+                            Agadir 80000, Maroc
+                           </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon"><i class='bx bx-time'></i></div>
+                    <div>
+                        <h4>Horaires</h4>
+                        <p>Lun – Sam : 9h00 – 20h00</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" action="">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input type="text" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Téléphone</label>
+                        <input type="tel" placeholder="+212 6…" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea placeholder="Écrivez votre message…" required></textarea>
+                </div>
+                <button type="submit" class="btn-send">
+                    <i class='bx bx-send'></i> Envoyer le message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER-->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="#home" class="logo">ESTA<span>CARS</span></a>
+                <p>La référence de la location de voitures de prestige à Agadir. Disponible 7j/7 pour vous offrir la meilleure expérience.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-btn"><i class='bx bxl-instagram'></i></a>
+                    <a href="#" class="social-btn"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="social-btn"><i class='bx bxl-whatsapp'></i></a>
+                    <a href="#" class="social-btn"><i class='bx bxl-tiktok'></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="ourcars.html">Nos voitures</a></li>
+                    <li><a href="#why">Pourquoi Nous</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Location courte durée</a></li>
+                    <li><a href="#">Location longue durée</a></li>
+                    <li><a href="#">Transfert aéroport</a></li>
+                    <li><a href="#">Chauffeur privé</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Légal</h4>
+                <ul>
+                    <li><a href="conditiond'utilisation.html">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span> &copy 2026 ESTACARS. Tous droits réservés.</span>
+        </div>
+    </footer>
+    
+</body>
+</html>

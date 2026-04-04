@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESTACARS - Connexion</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+   <nav class="navbar" id="navbar">
+        <a href="ESTAcars1.html" class="logo">ESTA<span>CARS</span></a>
+       
+        <div class="nav-right">
+            <a href="ESTAcars1.html" class="btn-login">Retour a l'accueil</a>
+            
+        </div>
+    </nav>
+
+    <!-- ZONE CENTRALE -->
+    <div class="page-center">
+
+        <!-- PAGE LOGIN -->
+        <div class="login-page" id="loginPage">
+            <form>
+                <h2>Se connecter</h2>
+
+                <div class="input-txt">
+                    <input type="email" placeholder="Email" required>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+
+                <div class="input-txt">
+                    <input type="password" placeholder="Mot de passe" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+
+                <div class="remember-me">
+                    <label><input type="checkbox"> Se souvenir de moi</label>
+                    <a href="#">Mot de passe oublié ?</a>
+                </div>
+
+                <button type="submit">Se connecter</button>
+
+                <div class="register">
+                    <p>Pas de compte ? <a href="#" id="goRegister">Créer un compte</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- PAGE REGISTER -->
+        <div class="login-page" id="registerPage">
+            <form>
+                <h2>Créer un compte</h2>
+
+                <div class="input-txt">
+                    <input type="text" placeholder="Nom d'utilisateur" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+
+                <div class="input-txt">
+                    <input type="email" placeholder="Email" required>
+                    <i class="bx bxs-envelope"></i>
+                </div>
+
+                <div class="input-txt">
+                    <input type="tel" placeholder="Numéro de téléphone" required>
+                    <i class="bx bxs-phone"></i>
+                </div>
+
+                <div class="input-txt">
+                    <input type="password" placeholder="Mot de passe" required>
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+
+                <div class="input-txt">
+                    <input type="password" placeholder="Confirmer le mot de passe" required>
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+
+                <div class="remember-me">
+                    <label>
+                        <input type="checkbox" id="terms">
+                        J'accepte <a href="conditiond'utilisation.html">les conditions d'utilisation</a>
+                    </label>
+                </div>
+
+                <button type="submit">Créer un compte</button>
+
+                <div class="register">
+                    <p>Déjà un compte ? <a href="#" id="goLogin">Se connecter</a></p>
+                </div>
+            </form>
+        </div>
+
+    </div><!-- fin .page-center -->
+
+    <script src="login.js"></script>
+</body>
+</html>

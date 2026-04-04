@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estacars — Conditions d'utilisation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #521b1b;
+            --gold-light: #741111;
+            --black: #0A0A0A;
+            --surface: #111111;
+            --surface2: #181818;
+            --text: #888;
+            --text-muted: rgba(240, 234, 214, 0.5);
+            --border: rgba(201, 168, 76, 0.15);
+            --red:      rgb(137, 15, 15);
+            --red-dark: rgb(90, 10, 10);
+            --red-glow: rgba(137, 15, 15, 0.4);
+            --dark:     #0a0a0a;
+            --card-bg:  #111111;
+            --border:   rgba(255, 255, 255, 0.08);
+            --text:     #f0f0f0;
+            --muted:    #888;
+        }
+
+
+         *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+             font-family: "Poppins", sans-serif;
+             background: var(--dark);
+             color: var(--text);
+             overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 52px;
+            height: 70px;
+            background: rgba(10,10,10,0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+        .btn-login::before { content: "←"; font-size: 16px; }
+        .btn-login{color:#888
+        }
+        .logo {
+             font-family: "Bebas Neue", sans-serif;
+             font-size: 26px;
+             letter-spacing: 3px;
+             color: var(--text);
+        }
+        .logo span { color: var(--red); }
+        .logo-mark {
+            width: 34px;
+            height: 34px;
+            border: 1.5px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            color:rgb(137, 15, 15);
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+
+        .logo-text span {
+            color: rgb(137, 15, 15);
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color:rgb(137, 15, 15);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .back-btn:hover {
+            opacity: 0.7;
+        }
+
+        .back-btn::before {
+            content: "←";
+            font-size: 16px;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            text-align: center;
+
+            padding: 90px 40px 70px;
+            border-bottom: 1px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            top: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-overline {
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .hero-date {
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 24px auto 0;
+        }
+
+        /* ── LAYOUT ── */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 70px 40px 100px;
+        }
+
+        /* ── TABLE DES MATIÈRES ── */
+        .toc {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 32px 40px;
+            margin-bottom: 60px;
+        }
+
+        .toc-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            color: var(--gold-light);
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 40px;
+        }
+
+        .toc ol li {
+            counter-increment: toc;
+            font-size: 13px;
+        }
+
+        .toc ol li::before {
+            content: counter(toc, decimal-leading-zero) ". ";
+            color: var(--gold);
+            font-weight: 500;
+            margin-right: 4px;
+        }
+
+        .toc ol li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .toc ol li a:hover {
+            color: var(--gold-light);
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            margin-bottom: 52px;
+            scroll-margin-top: 90px;
+        }
+
+        .section-number {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+         p {
+            font-size: 14px;
+            color: white;
+            margin-bottom: 14px;
+            line-height: 1.9;
+        }
+
+        .section ul {
+            list-style: none;
+            margin: 12px 0 16px 0;
+        }
+
+        .section ul li {
+            font-size: 14px;
+            color: var(--text-muted);
+            padding: 6px 0 6px 20px;
+            position: relative;
+            border-bottom: 1px solid #888;
+        }
+
+        .section ul li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: white;
+            font-weight: 300;
+        }
+
+        .highlight-box {
+            color: #888;
+            border-left: 2px solid var(--gold);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 2px 2px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: 13px;
+            color:#888;
+            font-style: italic;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: black;
+            border-top: 1px solid var(--border);
+            padding: 24px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer p {
+            font-size: 12px;
+            color: #888;
+            letter-spacing: 0.3px;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+       
+        @media (max-width: 640px) {
+            header {
+                padding: 16px 24px;
+            }
+
+            .hero {
+                padding: 60px 24px 50px;
+            }
+
+            .container {
+                padding: 50px 24px 80px;
+            }
+
+            .toc ol {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 28px 24px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <nav class="navbar" id="navbar">
+        <a href="ESTAcars1.html" class="logo">ESTA<span>CARS</span></a>
+       
+        <div class="nav-right">
+            <a href="ESTAcars1.html" class="btn-login">Retour a l'accueil</a>
+            
+        </div>
+    </nav>
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-overline">Documents légaux</div>
+        <h1>Conditions d'utilisation</h1>
+        <div class="gold-line"></div>
+    </div>
+
+    <!-- CONTENU -->
+    <div class="container">
+
+        <!-- Table des matières -->
+        <div class="toc">
+            <div class="toc-title">Table des matières</div>
+            <ol>
+                <li><a href="#s1">Acceptation des conditions</a></li>
+                <li><a href="#s2">Description du service</a></li>
+                <li><a href="#s3">Conditions de location</a></li>
+                <li><a href="#s4">Tarifs et paiement</a></li>
+                <li><a href="#s5">Responsabilités</a></li>
+                <li><a href="#s6">Données personnelles</a></li>
+                <li><a href="#s7">Annulation et remboursement</a></li>
+                <li><a href="#s8">Comportement et utilisation</a></li>
+                <li><a href="#s9">Modifications des conditions</a></li>
+                <li><a href="#s10">Contact et litiges</a></li>
+            </ol>
+        </div>
+
+        <!-- Article 1 -->
+        <div class="section" id="s1">
+            <div class="section-number">Article 01</div>
+            <h2>Acceptation des conditions</h2>
+            <p>En créant un compte ou en utilisant les services d'Estacars, vous reconnaissez avoir lu, compris et
+                accepté l'intégralité des présentes conditions d'utilisation. Si vous n'acceptez pas ces conditions,
+                vous ne pouvez pas utiliser nos services.</p>
+            <p>Ces conditions s'appliquent à toute personne physique majeure souhaitant louer un véhicule de luxe via la
+                plateforme Estacars, que ce soit via notre site web ou toute autre interface proposée.</p>
+            <div class="highlight-box">
+                <p>L'utilisation de notre service implique l'acceptation pleine et entière de ces conditions. Toute
+                    réservation vaut confirmation de cette acceptation.</p>
+            </div>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="section" id="s2">
+            <div class="section-number">Article 02</div>
+            <h2>Description du service</h2>
+            <p>Estacars est une plateforme de location de véhicules de luxe proposant une flotte exclusive de voitures
+                haut de gamme (Rolls-Royce, Bentley, Lamborghini, Ferrari, Porsche, et autres marques de prestige).</p>
+            <p>Nos services comprennent :</p>
+            <ul>
+                <li>La réservation en ligne de véhicules de luxe</li>
+                <li>La livraison et la reprise du véhicule à l'adresse souhaitée</li>
+                <li>Un service d'assistance disponible 24h/24 et 7j/7</li>
+                <li>Un service de chauffeur privé sur demande</li>
+                <li>Des assurances tous risques incluses dans chaque location</li>
+            </ul>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="section" id="s3">
+            <div class="section-number">Article 03</div>
+            <h2>Conditions de location</h2>
+            <p>Pour louer un véhicule Estacars, le locataire doit obligatoirement :</p>
+            <ul>
+                <li>Être âgé d'au moins 21 ans (25 ans pour certains véhicules sportifs)</li>
+                <li>Être titulaire d'un permis de conduire valide depuis au moins 2 ans</li>
+                <li>Présenter une pièce d'identité en cours de validité</li>
+                <li>Disposer d'une carte bancaire valide à son nom pour le dépôt de garantie</li>
+                <li>Ne pas avoir fait l'objet d'une suspension de permis au cours des 3 dernières années</li>
+            </ul>
+            <p>Estacars se réserve le droit de refuser toute location sans avoir à fournir de justification, notamment
+                en cas d'antécédents de sinistres ou de comportement non conforme aux présentes conditions.</p>
+        </div>
+
+        <!-- Article 4 -->
+        <div class="section" id="s4">
+            <div class="section-number">Article 04</div>
+            <h2>Tarifs et paiement</h2>
+            <p>Les tarifs de location sont indiqués en Dirhams marocains (MAD) toutes taxes comprises sur notre
+                plateforme. Ils peuvent varier selon la période, la durée de location et le véhicule sélectionné.</p>
+            <ul>
+                <li>Le paiement intégral est exigé au moment de la confirmation de réservation</li>
+                <li>Un dépôt de garantie sera prélevé temporairement selon le véhicule loué</li>
+                <li>Les frais de livraison sont indiqués séparément lors de la réservation</li>
+                <li>Tout dépassement de kilométrage autorisé sera facturé selon le tarif en vigueur</li>
+                <li>Les amendes de stationnement ou infractions restent à la charge du locataire</li>
+            </ul>
+            <div class="highlight-box">
+                <p>Estacars accepte les paiements par carte bancaire (Visa, Mastercard), virement bancaire et espèces en
+                    agence. Les paiements sont sécurisés par cryptage SSL.</p>
+            </div>
+        </div>
+
+        <!-- Article 5 -->
+        <div class="section" id="s5">
+            <div class="section-number">Article 05</div>
+            <h2>Responsabilités</h2>
+            <p>Le locataire est responsable du véhicule durant toute la durée de la location. Il s'engage à :</p>
+            <ul>
+                <li>Utiliser le véhicule de manière raisonnable et conforme au Code de la route</li>
+                <li>Ne pas sous-louer ni prêter le véhicule à un tiers non déclaré</li>
+                <li>Signaler immédiatement tout accident, vol ou dommage à Estacars</li>
+                <li>Restituer le véhicule dans l'état initial, propre et avec le même niveau de carburant</li>
+                <li>Ne pas circuler hors du territoire convenu sans autorisation préalable</li>
+            </ul>
+            <p>Estacars décline toute responsabilité en cas d'accident résultant d'une faute ou d'une négligence du
+                locataire, ou d'une utilisation non conforme aux présentes conditions.</p>
+        </div>
+
+        <!-- Article 6 -->
+        <div class="section" id="s6">
+            <div class="section-number">Article 06</div>
+            <h2>Données personnelles</h2>
+            <p>Estacars collecte et traite vos données personnelles conformément à la réglementation marocaine en
+                vigueur relative à la protection des données (Loi n°09-08).</p>
+            <ul>
+                <li>Vos données sont utilisées uniquement dans le cadre de la gestion de vos locations</li>
+                <li>Elles ne sont jamais cédées ni vendues à des tiers sans votre consentement</li>
+                <li>Vous disposez d'un droit d'accès, de rectification et de suppression de vos données</li>
+                <li>Pour exercer ces droits, contactez-nous à : privacy@estacars.ma</li>
+            </ul>
+        </div>
+
+        <!-- Article 7 -->
+        <div class="section" id="s7">
+            <div class="section-number">Article 07</div>
+            <h2>Annulation et remboursement</h2>
+            <ul>
+                <li><strong style="color:var(--text)">Annulation 72h avant</strong> : remboursement intégral</li>
+                <li><strong style="color:var(--text)">Annulation 24h à 72h avant</strong> : remboursement à 50%</li>
+                <li><strong style="color:var(--text)">Annulation moins de 24h avant</strong> : aucun remboursement</li>
+                <li><strong style="color:var(--text)">No-show</strong> : facturation de la totalité de la réservation
+                </li>
+            </ul>
+            <p>En cas d'indisponibilité du véhicule réservé de notre fait, Estacars proposera un véhicule équivalent ou
+                procédera à un remboursement intégral dans un délai de 5 jours ouvrés.</p>
+        </div>
+
+        <!-- Article 8 -->
+        <div class="section" id="s8">
+            <div class="section-number">Article 08</div>
+            <h2>Comportement et utilisation</h2>
+            <p>Il est strictement interdit :</p>
+            <ul>
+                <li>De conduire sous l'influence de l'alcool ou de substances illicites</li>
+                <li>De participer à des courses ou compétitions avec le véhicule loué</li>
+                <li>De fumer à l'intérieur des véhicules (pénalité de nettoyage applicable)</li>
+                <li>De transporter des marchandises illicites ou dangereuses</li>
+                <li>De modifier ou d'altérer le véhicule de quelque manière que ce soit</li>
+            </ul>
+        </div>
+
+        <!-- Article 9 -->
+        <div class="section" id="s9">
+            <div class="section-number">Article 09</div>
+            <h2>Modifications des conditions</h2>
+            <p>Estacars se réserve le droit de modifier les présentes conditions d'utilisation à tout moment. Les
+                modifications entrent en vigueur dès leur publication sur la plateforme.</p>
+            <p>Il vous appartient de consulter régulièrement cette page. La poursuite de l'utilisation de nos services
+                après toute modification vaut acceptation des nouvelles conditions.</p>
+        </div>
+
+        <!-- Article 10 -->
+        <div class="section" id="s10">
+            <div class="section-number">Article 10</div>
+            <h2>Contact et litiges</h2>
+            <p>Pour toute question relative aux présentes conditions ou à nos services, vous pouvez nous contacter :</p>
+            <ul>
+                <li>Par e-mail : contact@estacars.ma</li>
+                <li>Par téléphone : +212 5XX-XXX-XXX</li>
+                <li>À notre adresse : Boulevard Mohammed V, Casablanca, Maroc</li>
+            </ul>
+            <p>Les présentes conditions sont soumises au droit marocain. Tout litige sera soumis à la compétence
+                exclusive des tribunaux de Casablanca.</p>
+            <div class="highlight-box">
+                <p>En cas de litige, nous vous encourageons à nous contacter en premier lieu afin de trouver une
+                    solution amiable avant tout recours judiciaire.</p>
+            </div>
+        </div>
+
+    </div><!-- /container -->
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Estacars — Tous droits réservés.</p>
+        <a href="ESTAcars1.html">← Retour à l'accueil </a>
+        
+    </footer>
+
+</body>
+
+</html>

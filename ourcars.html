@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos voitures-ESTAcars</title>
+     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="ourcars.css">
+   
+</head>
+<body>
+     <nav class="navbar" id="navbar">
+        <a href="ESTAcars1.html" class="logo">ESTA<span>CARS</span></a>
+       
+        <div class="nav-right">
+            <a href="ESTAcars1.html" class="btn-login">Retour a l'accueil</a>
+            
+        </div>
+    </nav>
+    <!-- CARS SECTION--> 
+  <section class="cars-section" id="flotte">
+    <div class="section-header">
+      <div>
+        <p class="section-label">— Notre Sélection</p>
+        <h2 class="section-title">Nos Partenaires</h2>
+      </div>
+      
+    </div>
+
+    <!-- Row 1 -->
+    <div class="brand-row">
+      <div class="brand-card"data-brand="porshe">
+        <span class="brand-tag">Disponible</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Porsche-seeklogo.svg/640px-Porsche-seeklogo.svg.png" alt="Porsche">
+        <span class="brand-name">Porsche</span>
+      </div>
+      <div class="brand-card"data-brand="maserati">
+        <span class="brand-tag">Disponible</span>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/64/Maserati_logo.svg/960px-Maserati_logo.svg.png?_=20091115165744" alt="Maserati">
+        <span class="brand-name">Maserati</span>
+      </div>
+      <div class="brand-card"data-brand="mercedes">
+        <span class="brand-tag">Disponible</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/500px-Mercedes-Logo.svg.png" alt="Mercedes">
+        <span class="brand-name">Mercedes</span>
+      </div>
+      <div class="brand-card"data-brand="volkswagen">
+        <span class="brand-tag">Disponible</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Volkswagen_Logo_till_1995.svg/640px-Volkswagen_Logo_till_1995.svg.png" alt="Volkswagen">
+        <span class="brand-name">Volkswagen</span>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="brand-row">
+      <div class="brand-card"data-brand="audi">
+        <span class="brand-tag">Disponible</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Audi-Logo_2016.svg/500px-Audi-Logo_2016.svg.png" alt="Audi">
+        <span class="brand-name">Audi</span>
+      </div>
+      <div class="brand-card"data-brand="bmw">
+        <span class="brand-tag">Disponible</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/500px-BMW.svg.png" alt="BMW">
+        <span class="brand-name">BMW</span>
+      </div>
+      <div class="brand-card"data-brand="alfa romeo">
+        <span class="brand-tag">Disponible</span>
+        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/d/d7/Logo_Alfa_Romeo.svg/1280px-Logo_Alfa_Romeo.svg.png?_=20180225134133" alt="Alfa Romeo">
+        <span class="brand-name">Alfa Romeo</span>
+      </div>
+      <div class="brand-card"data-brand="infiniti">
+        <span class="brand-tag">Disponible</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Infiniti_Logo.png/640px-Infiniti_Logo.png" alt="Infiniti">
+        <span class="brand-name">Infiniti</span>
+      </div>
+    </div>
+  </section>
+   <section id="cars">
+        <div class="cars-header">
+            <div>
+                <span class="section-label">— Notre flotte</span>
+                <h2 class="section-title">Nos véhicules</h2>
+            </div>
+             <div class="btn-container">
+            <button id="showAll" class="btn-show-all">Afficher tout</button>
+            </div>
+        </div>
+        </div>
+        <div class="sort-buttons">
+        <div>
+    <button data-sort="default">Par défaut</button>
+    <button data-sort="price-low">Prix ↑</button>
+    <button data-sort="price-high">Prix ↓</button>
+    <button data-sort="rating">Meilleure note</button>
+    <button data-sort="brand">Marque A→Z</button>
+
+    </div><div class="select-wrapper">
+    <label for="typeSelect">Trier par type :</label>
+    <select id="typeSelect">
+        <option value="all">Tous</option>
+        <option value="suv">SUV</option>
+        <option value="sedan">Berline</option>
+        <option value="electrique">Électrique</option>
+        <option value="luxe">Luxe</option>
+        <option value="sportif">Sportif</option>
+        <option value="compacte">Compacte</option>
+    </select>
+</div>
+</div>
+</div>
+
+
+        <div class="cars-grid">
+            <div class="car-card" data-brand="bmw"data-price="700" data-rating="4.8"data-type="sedan">
+                <div class="car-img-wrap">
+                    <img src="https://prod.cosy.bmw.cloud/bmwweb/cosySec?COSY-EU-100-7331c9Nv2Z7d5yKlHS9jBqH7TAJei1ZIjAzpy3dgrvQF%259U3E47LdqfML8PF99%25U9XLzYmayVaH61mnvzic1QpE%25ViPRKVZlPxK73DIdpvw3azDxDr0dnkq8qTszOALUL3dkIFJGJfiABKupUBQFeWS6GwBKMPVYpTeWhbNm6rgPo90yYhObHi4TmtY9%25wc3y7DiftxdTCaw178zBQltECUke3Z7slGAM9HCrXpFhialZQ6KoZpXRaYWHDVQ5nmPXeJagOybQCsnvIT9algO2B3in2ZIjedwOjXBDMztIlmeqhk7BgMMLoACeZnhJHFlMUxou%25KXhGDHSfWQo4T%25V1PaH%25DfNEbn%25Zh10s9OfD1E4riIX4SscZwBQ24rxRteaogZ857Mn67RUgChOYQ5GvloImGgp2XHBRKv6jQ%25e5Q2YDafMgxjmqn1SrGDyLOEVcmqTJIsNkvL3uBr0AtJdSeZ4FCuzVMRcXySkNh5xQaVA0og8uVNF4HvU8f0Kc%252G7Q4WxfjpTCcP81D6GvxbUEqYlE89GsLljFUiprJXDGGw6ZuQWWptYRSao667m5Vnu%25YCygNyz8mlTv0TVSyX3243xMTQdjcd8R3azDxzkodnkq8kaszOALUAnzkIFJGF%25bABKupM9TFeWS6hr3KMPVYo%25wWhcgDzr3D%25WontGwgUJmGcpRB2Srxl5jAvmZ7dgMyDWRUQ8J2jD5lk1tcDVXOyzoVBDFu6GZCpEiy5wiXRTod0Ff4hFUW7ckagdOLb5inTNu8PftE6l5by2o3FxB%25KTjqL" width="400" height="300">
+                    <span class="car-tag">Disponible</span>
+                    <span class="car-rating">★ 4.8</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">BMW Série 3</div>
+                    <div class="car-type">Berline</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">700 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=BMW+Série+3&prix=700&marque=BMW&type=Berline&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/200px-BMW.svg.png" class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" data-brand="audi"data-price="1000" data-rating="4.9"data-type="sedan">
+                <div class="car-img-wrap">
+                    <img src="https://kifalstorage.s3.amazonaws.com/new/img/audi/etrongt/principal.png" width="300" height="180">
+                    <span class="car-tag" style="background:#1a7a4a">Electrique</span>
+                    <span class="car-rating">★ 4.9</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Audi e-tron GT </div>
+                    <div class="car-type">Berline sportive</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-map'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-heart'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">1000 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=Audi+e-tron+GT&prix=1000&marque=Audi&type=Berline+sportive&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Audi-Logo_2016.svg/200px-Audi-Logo_2016.svg.png"class="btn-book">Réserver</a>  
+                </div>
+            </div>
+        </div>
+
+            <div class="car-card"data-brand="porshe"data-price="1700" data-rating="5.0"data-type="electrique">
+                <div class="car-img-wrap">
+                    <img src="https://file.kelleybluebookimages.com/kbb/base/evox/CP/52034/2023-Porsche-Taycan-front_52034_032_2400x1800_4I_nologo.png" width="380" height="250" >
+                    <span class="car-tag">Disponible</span>
+                    <span class="car-rating">★ 5.0</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">PORSCHE taycan</div>
+                    <div class="car-type">Electrique</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 4 places</span>
+                        <span class="spec"><i class='bx bx-trip'></i> 4x4</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">1700 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=Porsche+Taycan&prix=1700&marque=Porsche&type=Electrique&places=4&img=https://upload.wikimedia.org/wikipedia/commons/4/44/Porsche_hood_emblem.png" class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card"data-brand="mercedes"data-price="1100" data-rating="5.0"data-type="luxe">
+                <div class="car-img-wrap">
+                    <img src="https://images.netdirector.co.uk/gforces-auto/image/upload/w_543,h_362,dpr_2.0,q_auto,c_fill,f_auto,fl_lossy/auto-client/eecb4849b30914b11bf1f5b377cd9fa8/g_500.png" width="350" height="230">
+                    <span class="car-tag" style="background:#c9a84c">Premium</span>
+                    <span class="car-rating">★ 5.0</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Mercedes G500</div>
+                    <div class="car-type">Luxe</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-map'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-heart'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">1100 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=Mercedes+G500&prix=1100&marque=Mercedes&type=Luxe&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/200px-Mercedes-Logo.svg.png" class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card"data-brand="volkswagen"data-price="700" data-rating="4.5"data-type="electrique">
+                <div class="car-img-wrap">
+                    <img src="https://image.elite-auto.fr/visuel/VOLKSWAGEN/volkswagen_21id4firsteditionsu1b_angularfront.png" width="320" height="170">
+                    <span class="car-tag" style="background:#1a7a4a">Electrique</span>
+                    <span class="car-rating">★ 4.5</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Volkswagen ID.4</div>
+                    <div class="car-type">Electrique</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-package'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">700 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=Volkswagen+ID.4&prix=700&marque=Volkswagen&type=Electrique&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Volkswagen_logo_2019.svg/200px-Volkswagen_logo_2019.svg.png"  class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" data-brand="infiniti"data-price="950" data-rating="4.9" data-type="suv">
+                <div class="car-img-wrap">
+                    <img src="https://www.infinitiusa.com/content/dam/Infiniti/US/vehicles/QX60/2026/vehicle-profile-assets/model-2026-infiniti-qx60-pure-awd-black-obsidian.png" width="360" height="180">
+                    <span class="car-tag">DISPONIBLE</span>
+                    <span class="car-rating">★ 4.9</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Infiniti QX60</div>
+                    <div class="car-type">SUV</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 7 places</span>
+                        <span class="spec"><i class='bx bx-chip'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-map'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">950 <sub>DH/jour</sub></div>
+                        <a href="Reservation.html?nom=Infiniti+QX60&prix=950&marque=Infiniti&type=SUV&places=7&img=https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Infiniti_logo.svg/200px-Infiniti_logo.svg.png" class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="car-card"  data-brand="porshe"data-price="1500" data-rating="5.0"data-type="sportif">
+                <div class="car-img-wrap">
+                    <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/39232/911-exterior-right-front-three-quarter-154385.png?isig=0&q=80" width="360" height="180">
+                    <span class="car-tag">Disponible</span>
+                    <span class="car-rating">★ 5.0</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">PORSHE 911</div>
+                    <div class="car-type">Sportif</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 4 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">1500 <sub>DH/jour</sub></div>
+                        <a href="Reservation.html?nom=Porsche+911&prix=1500&marque=Porsche&type=Sportif&places=4&img=https://upload.wikimedia.org/wikipedia/commons/4/44/Porsche_hood_emblem.png"  class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="car-card"data-brand="maserati"data-price="1200" data-rating="4.9"data-type="sedan">
+                <div class="car-img-wrap">
+                    <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/33688/ghibli-exterior-right-front-three-quarter-3.png?isig=0&q=80" width="360" height="180">
+                    <span class="car-tag">Disponible</span>
+                    <span class="car-rating">★ 4.9</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Maserati  Ghibli</div>
+                    <div class="car-type">Berline</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">1200 <sub>DH/jour</sub></div>
+                        <a href="Reservation.html?nom=Maserati+Ghibli&prix=1200&marque=Maserati&type=Berline&places=5&img=https://upload.wikimedia.org/wikipedia/fr/thumb/6/64/Maserati_logo.svg/200px-Maserati_logo.svg.png"  class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="car-card"data-brand="volkswagen"data-price="600" data-rating="4.7"data-type="suv">
+                <div class="car-img-wrap">
+                    <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/198751/tiguan-r-line-exterior-right-front-three-quarter-10.png?isig=0&q=80" width="350" height="150">
+                    <span class="car-tag" style="background:#c9a84c">Premium</span>
+                    <span class="car-rating">★ 4.7</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Volkswagen Tiguan</div>
+                    <div class="car-type">SUV</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">600 <sub>DH/jour</sub></div>
+                        <a href="Reservation.html?nom=Volkswagen+Tiguan&prix=600&marque=Volkswagen&type=SUV&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Volkswagen_logo_2019.svg/200px-Volkswagen_logo_2019.svg.png"  class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="car-card"data-brand="mercedes"data-price="1100" data-rating="5.0"data-type="sedan">
+                <div class="car-img-wrap">
+                    <img src="https://luxtimecars.com/wp-content/uploads/2024/05/image00001-3.png" width="340" height="200">
+                    <span class="car-tag" style="background:#c9a84c">Premium</span>
+                    <span class="car-rating">★ 5.0</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Mercedes Classe S</div>
+                    <div class="car-type">Berline</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">1100 <sub>DH/jour</sub></div>
+                        <a href="Reservation.html?nom=Mercedes+Classe+S&prix=1100&marque=Mercedes&type=Berline&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/200px-Mercedes-Logo.svg.png" class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="car-card"data-brand="bmw"data-price="950" data-rating="4.5"data-type="electrique">
+                <div class="car-img-wrap">
+                    <img src="https://prod.cosy.bmw.cloud/bmwweb/cosySec?COSY-EU-100-7331sBgrfZ7dQMw1pZSJeAuO30hd3KM4btviEWNR9mshKPoxhSBt7b4giZqxzOSFhy0%25lcpDwQ64fEsHS9jBqH7TAJei1ZIjAr8snCrLy633aJQbAFKdqf62lKwLVM%258w0KEcw2FD4fX7IvyL3hL4CRf1xEaxT%25Ge89RIhNQSht8iAm2YI1b4g7cNF1HGhFURH9hrnTDO7YEnvIT9T8WO2B3ib2ZIjedw9o7BDMzti08eqhk7wHiMLoACtyXhJHFl5Efou%25KXg4PHSfWQoeu%25V1PaHVqfNEbn%25NM10s9Ofm6E4riI1ySscZwBEmUrxRtescgZ857MrubRUgChZSR5GvloIGcgp2XHBJxv6jQ%25eup2YDafM3Ijmqn1hvbDyLOEo21qTJIsNR6L3uBr0A2JdSeZ4F7uzVMRcKlSkNh5xQTVA0og8wlNF4HvUmx0Kc%252G854Wxfjp7fcP81D7kkxbUEqUuF89GsLGdNUiprJpSaGw6Zu6VfptYRSYwh67m5VmO5YCygNyIzmlTv0TB9yX324aZDTQdjcnRI3aJqZvjDlwXYuq4GC9%25UnpqyBLayV3WJY" width="550" height="350">
+                    <span class="car-tag" style="background:#1a7a4a">Electrique</span>
+                    <span class="car-rating">★ 4.5</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">BMW i4</div>
+                    <div class="car-type">Electrique</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-package'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">950 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=BMW+i4&prix=950&marque=BMW&type=Electrique&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/200px-BMW.svg.png"  class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card"data-brand="alfa romeo"data-price="850" data-rating="4.9"data-type="suv">
+                <div class="car-img-wrap">
+                    <img src="https://www.alfaromeo.co.ma/content/dam/alfa/cross/tonale-mp/trim/Trim-Tonale_Speciale.png" width="350" height="180">
+                    <span class="car-tag">DISPONIBLE</span>
+                    <span class="car-rating">★ 4.9</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Alfa Romeo Tonale</div>
+                    <div class="car-type">SUV</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 7 places</span>
+                        <span class="spec"><i class='bx bx-chip'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-map'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">850 <sub>DH/jour</sub></div>
+                        <a href="Reservation.html?nom=Alfa+Romeo+Tonale&prix=850&marque=Alfa+Romeo&type=SUV&places=7&img=https://upload.wikimedia.org/wikipedia/fr/thumb/d/d7/Logo_Alfa_Romeo.svg/200px-Logo_Alfa_Romeo.svg.png" class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="car-card"data-brand="maserati"data-price="2000" data-rating="5.0"data-type="sportif">
+                <div class="car-img-wrap">
+                    <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/108971/mc20-exterior-right-front-three-quarter-3.png?isig=0&q=80" width="360" height="180">
+                    <span class="car-tag">Disponible</span>
+                    <span class="car-rating">★ 5.0</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Macerati  MC20</div>
+                    <div class="car-type">Sportif</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 2 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">2000 <sub>DH/jour</sub></div>
+                        <a href="Reservation.html?nom=Maserati+MC20&prix=2000&marque=Maserati&type=Sportif&places=2&img=https://upload.wikimedia.org/wikipedia/fr/thumb/6/64/Maserati_logo.svg/200px-Maserati_logo.svg.png" class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="car-card"data-brand="volkswagen"data-price="450" data-rating="4.5"data-type="compacte">
+                <div class="car-img-wrap">
+                    <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/198749/golf-gti-exterior-right-front-three-quarter-4.png?isig=0&q=80" width="350" height="170">
+                    <span class="car-tag" style="background:#c9a84c">Premium</span>
+                    <span class="car-rating">★ 4.5</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Volkswagen Golf</div>
+                    <div class="car-type">Compacte</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-package'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">450 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=Volkswagen+Golf&prix=450&marque=Volkswagen&type=Compacte&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Volkswagen_logo_2019.svg/200px-Volkswagen_logo_2019.svg.png"  class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card"data-brand="infiniti"data-price="750" data-rating="4.8"data-type="sedan">
+                <div class="car-img-wrap">
+                    <img src="https://www.moscow-infiniti.ru/upload/iblock/fdf/60b8c05482ac733870cc5628.webp" width="360" height="180">
+                    <span class="car-tag">DISPONIBLE</span>
+                    <span class="car-rating">★ 4.8</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Infiniti QX50</div>
+                    <div class="car-type">Berline</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-chip'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-map'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">750 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=Infiniti+QX50&prix=750&marque=Infiniti&type=Berline&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Infiniti_logo.svg/200px-Infiniti_logo.svg.png"  class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="car-card"data-brand="audi"data-price="730" data-rating="5.0"data-type="sedan">
+                <div class="car-img-wrap">
+                    <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/51909/a4-exterior-right-front-three-quarter-80.png?isig=0&q=80" width="360" height="180">
+                    <span class="car-tag" style="background:#c9a84c">Premium</span>
+                    <span class="car-rating">★ 5.0</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Audi A4</div>
+                    <div class="car-type">Berline</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">730 <sub>DH/jour</sub></div>
+                        <a href="Reservation.html?nom=Audi+A4&prix=730&marque=Audi&type=Berline&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Audi-Logo_2016.svg/200px-Audi-Logo_2016.svg.png" class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="car-card"data-brand="alfa romeo"data-price="850" data-rating="4.8"data-type="suv">
+                <div class="car-img-wrap">
+                    <img src="https://www.alfaromeo.co.ma/content/dam/alfa/ma/stelvio/miniature/stelvio-sprint/AR-Home-Trim-Stelvio-MCA-Sprint.png" width="360" height="180">
+                    <span class="car-tag">Premium</span>
+                    <span class="car-rating">★ 4.8</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Alfa Romeo Stelvio</div>
+                    <div class="car-type">SUV</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">850 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=Alfa+Romeo+Stelvio&prix=850&marque=Alfa+Romeo&type=SUV&places=5&img=https://upload.wikimedia.org/wikipedia/fr/thumb/d/d7/Logo_Alfa_Romeo.svg/200px-Logo_Alfa_Romeo.svg.png"  class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="car-card" data-brand="audi"data-price="850" data-rating="5.0"data-type="suv">
+                <div class="car-img-wrap">
+                    <img src="https://medias24.com/content/uploads/2025/11/13/635c742c-1725-4500-a3c5-319ca5eb8822-scaled.png.webp" width="360" height="180">
+                    <span class="car-tag" style="background:#c9a84c">Premium</span>
+                    <span class="car-rating">★ 5.0</span>
+                </div>
+                <div class="car-info">
+                    <div class="car-name">Audi Q5</div>
+                    <div class="car-type">SUV</div>
+                    <div class="car-specs">
+                        <span class="spec"><i class='bx bx-user'></i> 5 places</span>
+                        <span class="spec"><i class='bx bx-cog'></i> Auto</span>
+                        <span class="spec"><i class='bx bx-wind'></i> Clim</span>
+                    </div>
+                    <div class="car-footer">
+                        <div class="car-price">850 <sub>DH/jour</sub></div>
+                        <a  href="Reservation.html?nom=Audi+Q5&prix=850&marque=Audi&type=SUV&places=5&img=https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Audi-Logo_2016.svg/200px-Audi-Logo_2016.svg.png"class="btn-book">Réserver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="#home" class="logo">ESTA<span>CARS</span></a>
+                <p>La référence de la location de voitures de prestige à Agadir. Disponible 7j/7 pour vous offrir la meilleure expérience.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-btn"><i class='bx bxl-instagram'></i></a>
+                    <a href="#" class="social-btn"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="social-btn"><i class='bx bxl-whatsapp'></i></a>
+                    <a href="#" class="social-btn"><i class='bx bxl-tiktok'></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="ESTAcars1.html">Accueil</a></li>
+                    <li><a href="ESTAcars1.html">À propos</a></li>
+                    <li><a href="ESTAcars1.html">Nos voitures</a></li>
+                    <li><a href="ESTAcars1.html">Pourquoi Nous</a></li>
+                    <li><a href="ESTAcars1.html">Contact</a></li>
+                    
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Location courte durée</a></li>
+                    <li><a href="#">Location longue durée</a></li>
+                    <li><a href="#">Transfert aéroport</a></li>
+                    <li><a href="#">Chauffeur privé</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Légal</h4>
+                <ul>
+                    <li><a href="conditiond'utilisation.html">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span style="color: #888;">© 2026 ESTACARS. Tous droits réservés.</span>
+        </div>
+    </footer>
+    <script src="ourcars.js"></script>
+</body>
+</html>
